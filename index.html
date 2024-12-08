@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASM Hiring Mine</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Roboto;
+    }
+
+    /* switch BUTTON START */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 17px;
+    }
+
+    /* Hide the default checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider (the visual toggle button) */
+    .switch label {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 25px;
+      transition: background-color 0.3s;
+    }
+
+    /* The circular knob inside the switch */
+    .switch label::before {
+      content: '';
+      position: absolute;
+      height: 30px;
+      width: 30px;
+      left: -5px;
+      bottom: -5.6px;
+      background-color: rgb(0, 30, 60);
+      border-radius: 50%;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    /* Change background color when the toggle is checked */
+    .switch input:checked+label {
+      background-color: #898f96;
+    }
+
+    /* Move the knob and change its appearance when toggled */
+    .switch input:checked+label::before {
+      transform: translateX(25px);
+      background-color: rgb(0, 56, 146);
+      /* Sun-like color for the knob */
+    }
+
+    /* Switch BUTTON END */
+
+
+
+
+
+
+    .navBar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 22px 0px;
+
+    }
+
+
+    .NavText {
+      /* background-color: #48c6ef; */
+      display: flex;
+      height: 40px;
+      align-items: end;
+      list-style-type: none;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 186.34px;
+      height: 36px;
+    }
+
+    .navAnchors {
+      text-decoration: none;
+      color: #313131;
+    }
+
+    .navAnchor {
+      text-decoration: none;
+    }
+
+    .section2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Section Styling */
+    .section2 {
+      text-align: center;
+      padding: 50px 20px;
+      /* background: linear-gradient(to bottom, #ffffff, #f8f9fc); */
+      font-family: 'Roboto', sans-serif;
+      /* Add your Google Font */
+    }
+
+    /* Main Heading Styling */
+    .MainHeading {
+      font-size: 80px;
+      font-weight: 800;
+      color: #4f4eff;
+      /* Start of gradient */
+      line-height: 1.3;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #4f4eff, #48c6ef);
+      /* Gradient text */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Main Paragraph Styling */
+    .mainPara {
+      font-size: 20px;
+      color: #333;
+      max-width: 770px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    /* Search Container */
+    .Search {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Search Box Styling */
+    .srh {
+      position: relative;
+      width: 700px;
+      max-width: 90%;
+    }
+
+    .srh2 {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      padding: 10px 15px;
+    }
+
+    .Input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 1rem;
+      color: #555;
+      background: transparent;
+    }
+
+    .srh3 img {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      /* filter: hue-rotate(200deg);  */
+    }
+
+
+
+
+
+    /* Search Button Styling */
+    .SRHbutton {
+      padding: 10px 25px;
+      background-color: #6d4eff;
+      /* Purple button */
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+    }
+
+    .SRHbutton:hover {
+      background-color: #5533cc;
+      
+      /* Darker purple on hover */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Section Styling */
+    .popular-searches {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding: 0px 20px;
+      
+      font-family: 'Roboto', sans-serif;
+      /* Add a Google font if needed */
+    }
+
+    /* Title Styling */
+    .search-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #6d4eff;
+      /* Purple color */
+      margin-bottom: 20px;
+    }
+
+    /* Tags Container */
+    .search-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* Tag Button Styling */
+    .tag {
+      padding: 8px 20px;
+      border: 2px solid #6d4eff;
+      /* Purple border */
+      border-radius: 5px;
+      color: #6d4eff;
+      /* Purple text */
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background-color: #dcd9e9;
+      /* Purple background on hover */
+
+    }
+
+
+    .section4 {
+      /* background-color: rgb(244,242,255); */
+      width: 100%;
+
+    }
+
+    header {
+      background-image: linear-gradient(180deg, #ffffff 0%, #eeebff 69.79%, #ebe8ff 99.99%, #e1deff 100%);
+      width: 100%;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Overall Container Styling */
+    .hiring-steps {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f8f9fc;
+      /* Light background */
+      font-family: 'Roboto', sans-serif;
+      /* Optional: Add a Google Font */
+    }
+
+    /* Title Styling */
+    .steps-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .highlight {
+      color: #6d4eff;
+      /* Highlighted purple color */
+    }
+
+    /* Subtitle Styling */
+    .steps-subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* Steps Container */
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Individual Step Box */
+    .step {
+      background: linear-gradient(to bottom, #ffffff, #f3f1ff);
+      /* Light gradient background */
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      /* Soft shadow */
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Step Icon */
+    .step-icon {
+      font-size: 2.5rem;
+      color: #6d4eff;
+      /* Purple color for icons */
+      margin-bottom: 15px;
+    }
+
+    /* Step Title */
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #6d4eff;
+      margin-bottom: 10px;
+    }
+
+    /* Step Description */
+    .step-description {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .mainSec2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .sec2-2 {
+      margin-bottom: 30px;
+    }
+
+    .sec2-3 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    .sec2-4 {
+      color: #6a5cff;
+      /* Purple highlight */
+    }
+
+    .sec2-5 {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 10px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .sec2-6 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sec2-6 img {
+      width: 500px;
+      /* Adjust size based on the emoji image */
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      /* Optional: Adds a subtle rounded edge */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .career-section {
+      text-align: center;
+      padding: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+
+    .career-section h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .career-section .highlight {
+      color: #6a5cff;
+      /* Highlight text color */
+    }
+
+    .career-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .career-card {
+      background-color: #f3f3ff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      flex: 0 1 calc(25% - 20px);
+      /* 4 cards per row */
+      max-width: calc(25% - 20px);
+    }
+
+    .career-card:hover {
+      /* transform: translateY(-5px); */
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .career-card .icon {
+      width: 50px;
+      height: 50px;
+      background-color: #6a5cff;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+    }
+
+    .career-card h2 {
+      font-size: 1.25rem;
+      color: #6a5cff;
+      margin: 10px 0;
+    }
+
+    .career-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .career-card {
+        flex: 0 1 calc(50% - 20px);
+        /* 2 cards per row */
+        max-width: calc(50% - 20px);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .career-card {
+        flex: 0 1 100%;
+        /* 1 card per row */
+        max-width: 100%;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .job-section {
+    text-align: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.job-section h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.job-section .highlight {
+    color: #6a5cff; /* Highlight text color */
+}
+
+.job-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.job-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 0 1 calc(33.33% - 20px); /* 3 cards per row */
+    max-width: calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-header h2 {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.job-header .logo {
+    width: 30px;
+    height: 30px;
+    /* background-color: #6a5cff; */
+    border-radius: 50%;
+}
+
+.job-card h3 {
+    font-size: 1rem;
+    color: #6a5cff;
+    margin: 10px 0;
+}
+
+.job-card .salary {
+    color: #6a5cff;
+    font-size: 0.9rem;
+}
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.job-footer .views {
+    color: #666;
+}
+
+.job-footer .poster {
+    color: #6a5cff;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .job-card {
+        flex: 0 1 calc(50% - 20px); /* 2 cards per row */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .job-card {
+        flex: 0 1 100%; /* 1 card per row */
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.job-layout-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.job-section {
+    text-align: center;
+}
+
+.connect-section .job-image img,
+.post-job-section .job-image img {
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.connect-section .job-title,
+.post-job-section .job-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #333;
+}
+
+.connect-section .job-subtitle,
+.post-job-section .job-subtitle {
+    font-size: 48px;
+    font-weight: 600;
+    color: #5b45f2;
+    margin-top: 5px;
+}
+
+.job-divider {
+    width: 1px;
+    height: 120px;
+    background-color: #76a3ec;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styling */
+.custom-footer {
+    background: linear-gradient(to top, #8146ff, #3d2db3);
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* About Section */
+.about-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.logo-highlight {
+    color: #ffffff;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+.footer-follow-us {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.social-icon {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ffcc00;
+}
+
+/* Contact Section */
+.contact-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: right;
+}
+
+.footer-contact-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-email {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+
+/* Divider */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Bottom Links */
+.footer-link {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #ffcc00;
+}
+
+/* Copyright */
+.footer-copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-section,
+    .contact-section {
+        text-align: center;
+    }
+
+    .footer-contact-title,
+    .footer-email {
+        text-align: center;
+    }
+
+    .footer-social-icons {
+        justify-content: center;
+    }
+}
+
+
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <div  class="section1">
+      <nav class="navBar">
+
+        <a class="logo" href="/"><img class="logo"
+            src="https://www.hiringmine.com/assets/Hiring%20Mine%20Logo-453a72d3.png" alt=""></a>
+
+
+        <ul class="NavText">
+          <li><a class="navAnchors" href="/">About Us</a></li>
+          <li><a class="navAnchors" href="/">People</a></li>
+          <li><a class="navAnchors" href="/">Jobs</a></li>
+          <li><a class="navAnchors" href="/">Login</a></li>
+          <li><a class="navAnchors" href="/">Join Now</a></li>
+          <li><a class="navAnchor" href="/">Employee / Post Job</a></li>
+        </ul>
+
+
+        <div style="padding-left: 70px; margin-right: 100px; " class="swh">
+          <div class="switch">
+            <input type="checkbox" id="toggle" />
+            <label for="toggle"></label>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+
+
+    <div class="section2" >
+      <h1 class="MainHeading">Dig. Apply <br class="br1"> Prepare Your Future</h1>
+      <p class="mainPara">
+        Hiring Mine connects employer and job seekers, where employers are the source
+        of the resources and the job seeker can find and apply for their targeted job.</p>
+      <div class="Search">
+        <div class="srh">
+
+          <div class="srh2">
+            <input aria-invalid="false" id="srhInput" type="text" placeholder="Search by Role or Keyword" class="Input"
+              value="">
+            <div class="srh3">
+              <img src="https://www.hiringmine.com/assets/UserVector-dcdef637.svg" alt="inputIcon">
+            </div>
+
+          </div>
+        </div>
+        <button class="SRHbutton" tabindex="0" type="button">Find Jobs</button>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="section3" >
+      <div class="popular-searches">
+        <h2 class="search-title">Popular Searches</h2>
+        <div class="search-tags">
+          <a href="#" class="tag">Software</a>
+          <a href="#" class="tag">Developer</a>
+          <a href="#" class="tag">Backend</a>
+          <a href="#" class="tag">React</a>
+          <a href="#" class="tag">Node</a>
+          <a href="#" class="tag">React Native</a>
+          <a href="#" class="tag">Flutter</a>
+          <a href="#" class="tag">UI/UX</a>
+          <a href="#" class="tag">Designer</a>
+          <a href="#" class="tag">Web</a>
+          <a href="#" class="tag">SEO</a>
+          <a href="#" class="tag">Marketing</a>
+          <a href="#" class="tag">Writer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section4" >
+      <img width="100%" src="https://www.hiringmine.com/assets/art%20work-df4f7a46.png" alt="">
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <Main>
+    <div class="mainSec1">
+      <div class="hiring-steps">
+        <h2 class="steps-title">Get Hired In 4 <span class="highlight">Quick Easy Steps</span></h2>
+        <p class="steps-subtitle">
+          The quickest and the most effective way to get hired by the top firm.
+        </p>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M19 5.59473V19.5947H5V5.59473H19ZM19 3.59473H5C3.89 3.59473 3 4.49473 3 5.59473V19.5947C3 20.6947 3.89 21.5947 5 21.5947H19C20.1 21.5947 21 20.6947 21 19.5947V5.59473C21 4.49473 20.1 3.59473 19 3.59473ZM12 12.5947C10.35 12.5947 9 11.2447 9 9.59473C9 7.94473 10.35 6.59473 12 6.59473C13.65 6.59473 15 7.94473 15 9.59473C15 11.2447 13.65 12.5947 12 12.5947ZM12 8.59473C11.45 8.59473 11 9.04473 11 9.59473C11 10.1447 11.45 10.5947 12 10.5947C12.55 10.5947 13 10.1447 13 9.59473C13 9.04473 12.55 8.59473 12 8.59473ZM18 18.5947H6V17.0647C6 14.5647 9.97 13.4847 12 13.4847C14.03 13.4847 18 14.5647 18 17.0647V18.5947ZM8.31 16.5947H15.69C15 16.0347 13.31 15.4747 12 15.4747C10.69 15.4747 8.99 16.0347 8.31 16.5947Z"
+                  fill="#6851FF"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Create an Account</h3>
+            <p class="step-description">
+              Join our vibrant community. Create your account and unlock boundless opportunities.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.7549 14.8496H14.9649L14.6849 14.5796C15.6649 13.4396 16.2549 11.9596 16.2549 10.3496C16.2549 6.75961 13.3449 3.84961 9.75488 3.84961C6.16488 3.84961 3.25488 6.75961 3.25488 10.3496C3.25488 13.9396 6.16488 16.8496 9.75488 16.8496C11.3649 16.8496 12.8449 16.2596 13.9849 15.2796L14.2549 15.5596V16.3496L19.2549 21.3396L20.7449 19.8496L15.7549 14.8496ZM9.75488 14.8496C7.26488 14.8496 5.25488 12.8396 5.25488 10.3496C5.25488 7.85961 7.26488 5.84961 9.75488 5.84961C12.2449 5.84961 14.2549 7.85961 14.2549 10.3496C14.2549 12.8396 12.2449 14.8496 9.75488 14.8496Z"
+                  fill="#6851FF"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Search a Job</h3>
+            <p class="step-description">
+              Discover your ideal job. Our intuitive search feature makes job hunting effortless.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14 2.59473H6C4.9 2.59473 4.01 3.49473 4.01 4.59473L4 20.5947C4 21.6947 4.89 22.5947 5.99 22.5947H18C19.1 22.5947 20 21.6947 20 20.5947V8.59473L14 2.59473ZM18 20.5947H6V4.59473H13V9.59473H18V20.5947ZM8 15.6047L9.41 17.0147L11 15.4347V19.5947H13V15.4347L14.59 17.0247L16 15.6047L12.01 11.5947L8 15.6047Z"
+                  fill="#6851FF"></path>
+              </svg>
+              </svg>
+            </div>
+            <h3 class="step-title">Upload CV/Resume</h3>
+            <p class="step-description">
+              Showcase your expertise. Upload your CV or resume and stand out to employers.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 7.09473H17V5.09473C17 3.98473 16.11 3.09473 15 3.09473H9C7.89 3.09473 7 3.98473 7 5.09473V7.09473H4C2.89 7.09473 2 7.98473 2 9.09473V20.0947C2 21.2047 2.89 22.0947 4 22.0947H20C21.11 22.0947 22 21.2047 22 20.0947V9.09473C22 7.98473 21.11 7.09473 20 7.09473ZM9 5.09473H15V7.09473H9V5.09473ZM20 20.0947H4V18.0947H20V20.0947ZM20 15.0947H4V9.09473H7V11.0947H9V9.09473H15V11.0947H17V9.09473H20V15.0947Z"
+                  fill="#6851FF"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Get a Job</h3>
+            <p class="step-description">
+              Achieve your career goals. Apply for jobs and embark on your next adventure.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="mainSec2">
+      <div class="sec2-1">
+        <div class="sec2-2">
+          <h3 class="sec2-3">Find Your Dream Job <span class="sec2-4">Super Fast Ever.</span></h3>
+          <p class="sec2-5">We are here to help jobseekers connect with organizer and companies. We are provides the
+            best opportunities to professional people.</p>
+        </div>
+        <div class="sec2-6"><img src="https://www.hiringmine.com/assets/banner_career-4b7d86fb.webp" alt="img"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mainSec3">
+      <div class="career-section">
+        <h1>Countless Career Options <span class="highlight">Are Waiting For You To Explore</span></h1>
+        <div class="career-container">
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>Marketing & Sales</h2>
+            <p>545 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>Development</h2>
+            <p>365 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>Art & Illustration</h2>
+            <p>148 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>Animation</h2>
+            <p>85 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>Management</h2>
+            <p>74 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>Information Tech</h2>
+            <p>69 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>HR & Finance</h2>
+            <p>65 Jobs</p>
+          </div>
+          <div class="career-card">
+            <img src="https://www.hiringmine.com/assets/ArtIcon-abc0c65a.svg" alt="">
+            <h2>UX/UI Design</h2>
+            <p>52 Jobs</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="mainSec4">
+      <div class="job-section">
+        <h1><span class="highlight">Latest And Top</span> Job Openings</h1>
+        <div class="job-container">
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Makh Accoun Taxologist</h2>
+                    <span class="logo"><img width="40px" src="./download.png" alt=""></span>
+                </div>
+                <h3>HR Consultant</h3>
+                <p class="salary">No Salary Mentioned</p>
+                <div class="job-footer">
+                    <p>5 hours ago</p>
+                    <p class="views">9 views</p>
+                    <p>posted by <span class="poster">Hasan</span></p>
+                </div>
+            </div>
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Msezy</h2>
+                    <span class="logo"><img width="40px" src="./download.png" alt=""></span>
+                </div>
+                <h3>Developer, SAP BW HANA</h3>
+                <p class="salary">RS 400000 - 450000</p>
+                <div class="job-footer">
+                    <p>5 hours ago</p>
+                    <p class="views">21 views</p>
+                    <p>posted by <span class="poster">Hasan</span></p>
+                </div>
+            </div>
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Msezy</h2>
+                    <span class="logo"><img width="40px" src="./download.png" alt=""></span>
+                </div>
+                <h3>SAP OTC Analyst</h3>
+                <p class="salary">RS 400000 - 500000</p>
+                <div class="job-footer">
+                    <p>5 hours ago</p>
+                    <p class="views">14 views</p>
+                    <p>posted by <span class="poster">Hasan</span></p>
+                </div>
+            </div>
+            <!-- Job Card 4 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Msezy</h2>
+                    <span class="logo"><img width="40px" src="./download.png" alt=""></span>
+                </div>
+                <h3>Business Intelligence Developer (Cognos)</h3>
+                <p class="salary">RS 300000 - 350000</p>
+                <div class="job-footer">
+                    <p>5 hours ago</p>
+                    <p class="views">16 views</p>
+                    <p>posted by <span class="poster">Hasan</span></p>
+                </div>
+            </div>
+            <!-- Job Card 5 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Msezy</h2>
+                    <span class="logo"><img width="40px" src="./download.png" alt=""></span>
+                </div>
+                <h3>Sales Manager (Export) Chinese</h3>
+                <p class="salary">RS 90000 - 150000</p>
+                <div class="job-footer">
+                    <p>5 hours ago</p>
+                    <p class="views">6 views</p>
+                    <p>posted by <span class="poster">Hasan</span></p>
+                </div>
+            </div>
+            <!-- Job Card 6 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Msezy</h2>
+                    <span class="logo"><img width="40px" src="./download.png" alt=""></span>
+                </div>
+                <h3>Corporate System Analyst</h3>
+                <p class="salary">RS 200000 - 250000</p>
+                <div class="job-footer">
+                    <p>13 hours ago</p>
+                    <p class="views">23 views</p>
+                    <p>posted by <span class="poster">Hasan</span></p>
+                </div>
+            </div>
+        </div>
+     </div>
+    
+    </div>
+
+
+
+
+
+    <div class="mainSec5">
+      <div class="job-layout-container">
+        
+        <div class="job-section connect-section">
+            <div class="job-image">
+                <img src="https://www.hiringmine.com/assets/Frame-55f66875.png" alt="Connect with people">
+            </div>
+            <h2 class="job-title">Connect With People</h2>
+            <h2 class="job-subtitle">Who Can Help</h2>
+        </div>
+
+
+        <div class="job-divider"></div>
+
+
+        <div class="job-section post-job-section">
+            <div class="job-image">
+                <img  src="https://www.hiringmine.com/assets/Layer_1-ab8fadbb.png" alt="Post your job">
+            </div>
+            <h2 class="job-title">Post Your Job</h2>
+            <h2 class="job-subtitle">For People To See</h2>
+        </div>
+    </div>
+    
+    </div>
+
+  </Main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="custom-footer">
+    <div class="footer-container">
+        <div class="footer-section about-section">
+            <h2 class="footer-logo"><span class="logo-highlight"><img src="./download (1).png" alt=""></span></h2>
+            <p class="footer-description">
+                HiringMine connects employers and job seekers, where employers are the source of the resources, and the job seeker can find and apply for their targeted job.
+            </p>
+            <h3 class="footer-follow-us">Follow us</h3>
+            <div class="footer-social-icons">
+                <a href="#" class="social-icon"><img src="https://www.hiringmine.com/assets/FacebookIcon-d00bcd86.svg" alt=""></a>
+                <a href="#" class="social-icon"><img src="https://www.hiringmine.com/assets/WhatsAppIcon-21b9cb15.svg" alt=""></a>
+                <a href="#" class="social-icon"><img src="https://www.hiringmine.com/assets/IstagramIcon-cd882890.svg" alt=""></a>
+                <a href="#" class="social-icon"><img src="https://www.hiringmine.com/assets/LinkedinIcon-95a0c942.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="footer-section contact-section">
+            <h3 class="footer-contact-title">Contact Us</h3>
+            <p class="footer-email">
+                <span class="email-icon"><svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6666 1.99984C13.6666 1.2665 13.0666 0.666504 12.3333 0.666504H1.66659C0.933252 0.666504 0.333252 1.2665 0.333252 1.99984V9.99984C0.333252 10.7332 0.933252 11.3332 1.66659 11.3332H12.3333C13.0666 11.3332 13.6666 10.7332 13.6666 9.99984V1.99984ZM12.3333 1.99984L6.99992 5.33317L1.66659 1.99984H12.3333ZM12.3333 9.99984H1.66659V3.33317L6.99992 6.6665L12.3333 3.33317V9.99984Z" fill="white"></path></svg></span> portal.hiringmine@gmail.com
+            </p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <p class="footer-copyright">Copyright HiringMine 2024. All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+  integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</html>
